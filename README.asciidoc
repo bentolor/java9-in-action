@@ -1,0 +1,19 @@
+= Java 9 - What's hot, whats not
+Benjamin Schmid <benjamin.schmid@exxcellent.de>
+
+A overview & example of what to expect from Java 9 (Jul'2016)
+
+== Introduction
+
+
+== Contents
+
+[cols="1,2"]
+|===
+|`presentation` | A short RevealJS based presentation. Just open `index.html`
+|`playground` | Example projects. Open with IntelliJ IDEA or use Gradle to build
+|===
+
+== Getting started
+
+...

@@ -1,0 +1,384 @@
+<!doctype html>
+<html lang="de">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Java 9: What's hot</title>
+
+		<meta name="description" content="An short summary &amp; overview over the new features of Java 9">
+		<meta name="author" content="Benjamin Schmid">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Custom, overriding CSS -->
+		<link rel="stylesheet" href="css/custom.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+
+				<section>
+					<div class="container">
+					<h1 style="margin: 00px 0 80px 0">Java 9</h1>
+					<h5><i> Lightning Talk:</i></h5>
+					<h3 style="text-align: left" class="emphasize">What's hot, what's not</h3>
+
+					<div id="helpfooter">
+					<code>?</code> for help
+					</div>
+					<div id="version">
+					2016-06-14
+					</div>
+					<div id="licence">
+						<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+							<img alt="Creative Commons Lizenzvertrag"
+								 src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a>
+						<br /><span xmlns:dct="http://purl.org/dc/terms/"
+									href="http://purl.org/dc/dcmitype/InteractiveResource"
+									property="dct:title" rel="dct:type">IPv6 - a crash course</span>
+									by
+								<a xmlns:cc="http://creativecommons.org/ns#" href="https://twitter.com/bentolor"
+									property="cc:attributionName" rel="cc:attributionURL">Benjamin Schmid</a>
+									is licensed under a
+									<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+										Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.</a>.
+							<br> Based in parts on the work of <a xmlns:dct="http://purl.org/dc/terms/"
+									  href="http://lab.hakim.se/reveal-js/" rel="dct:source">Reveal.JS</a>.
+					</div>
+					</div>
+				</section>
+
+				<section>
+
+					<section>
+						<h1>Java 9</h1>
+						<h3>in a nutshell</h3>
+					</section>
+
+					<section>
+						<div data-markdown>
+- 82 JSR targeted
+						</div>
+					</section>
+
+					<section>
+						<div data-markdown>
+							### Typischer IoT Zyklus
+							Generell meint IoT eigentlich immer folgenden Zyklus:
+
+							1. **Identifikation** eines Objekts
+							2. **Erfassung** objektspezifischer **Eigenschaften**    <!-- -->
+							   (ID via RFID, Temperatur, Bewegung, Lage, Feuchtichgkeit, ... )
+							3. **Kommunikation** der Daten ins Netz (WLAN, Bluetooth, ZiggBee, ...)
+							4. Und daraus **Aktionen** und **Mehrwert-Dienste** ableiten
+						</div>
+					</section>
+
+					<section>
+						<div data-markdown>
+							### #1 Objekt-Identifikation
+							- RFID
+							- Strich-, QR oder Barcode
+						</div>
+					</section>
+
+					<section>
+						<div data-markdown>
+							### #2 Erfassung: Sensoren
+
+							-    Arduino  [151 Sensoren](https://www.adafruit.com/category/35)
+							-    Tinkerforge : [52 Sensoren](https://www.tinkerforge.com/de/shop/bricklets.html?limit=all)
+							-    Sparkfun (IoT Shop): [207 Sensoren](https://www.sparkfun.com/categories/23?sort_by=popular&per_page=400)
+						</div>
+					</section>
+
+					<section>
+						<div data-markdown>
+							### #3 Kommunikation
+
+							- Nachgerüstet (z.B. Arduino Shield) oder Teil der Plattform
+							- Varianten:
+							   * WiFi
+							   * Bluetooth
+							   * Bluetooth LE
+							   * ZigBee
+							   * ...
+						</div>
+					</section>
+
+					<section>
+						<div data-markdown class="">
+							### #4 Aktionen &amp; Mehrwerte
+
+							- **Monitoring** &amp; Alerts (z.B: Temperatur, Energieverbrauch, ...)
+							- Neue **HMI-Schnittstellen** (Sprachsteuerung, Gestensteuerung, ...)
+							- **Item Location (indoor, outdoor)**  / Fleet Tracking    <!--   -->
+							   using active (ZigBee, Beacon) and passive tags (RFID/NFC).
+							- **People proximity** via Smartphone Detection
+							- **Supply Chain Control** (z.B. Kühlüberwachung)
+							- **Smart Product Management** (z.B. autom. Lagerverwaltung)
+							- **M2M Applications:** Machine auto-diagnosis.     <!-- -->
+							(z.B. Überwachung Kaffeemaschine)
+						</div>
+					</section>
+
+				</section>
+
+				<section>
+
+
+					<section>
+						<div data-markdown>
+							# Workshop
+						</div>
+					</section>
+
+					<section>
+						<div data-markdown style="border-left: 10px solid #666;" >
+> Neue Erfahrungswelten: Jeder Teilnehmer bekommt echte, nackte Hardware
+> in die Hand gedrückt. Am Beispiel einer aktuellen Plattform (Arduino, Tessel,
+> etc.) machen wir unsere ersten Hardware-Erfahrungen samt Lötzinn und
+> Lötkolben als geführter Kick-Start in die IoT-Welt. Die Ideen & Projekt-
+> Möglichkeiten sind groß und daher noch offen. Mit Sicherheit dagegen habt
+> ihr am Ende dieses Workshops die Wirkung der einzelnen Bits & Bytes
+> deutlich zum Anfassen erlebt. Ein mögliches Beispiel wäre z.B. in Form
+> eines individuell funkelnde LED-"Diamant" Anhängers auf Basis der
+> Wearable-Plattform Arduino Flora.						</div>
+					</section>
+
+					<section>
+						<div data-markdown class="container">
+##### Workshop:
+### Prioritäten &amp; Goals
+
+1. Hardware-Erfahrungen
+2. Machbarkeit
+3. "Internet"-Lösung
+4. Cooles Projekt
+						</div>
+					</section>
+
+				</section>
+
+				<section>
+
+					<section>
+						<div data-markdown class="container">
+### Hardware Plattformen
+
+##### WLAN-Fähig (nativ)
+- [ESP8266 (Arduino)](http://esp8266.net/)
+- [Tessel 2](https://tessel.io/)
+- [Particle Photon](https://www.particle.io/)
+- uvm. [Übersicht bei Hackster](https://www.hackster.io/platforms)
+
+##### WLAN-Fähig (erweitert)
+- Arduino / Adafruit WiFi Shsield
+						</div>
+					</section>
+
+				<section data-markdown>
+### Software Plattformen
+
+- [Thingspeak](https://thingspeak.com/)
+- [Ubidots](http://ubidots.com/)
+- [Conrad Connect](https://conradconnect.de/)
+- IFFT
+- [Particle](https://www.particle.io/)
+- [Amazon AWS IoT](https://aws.amazon.com/de/iot/)
+- Vergleich: PaaS für IoT [(PDF)](https://opus.hs-offenburg.de/files/1331/Thesis_mkarow.pdf)
+				</section>
+
+
+				<section data-markdown class="container">
+					## Weiterführende Ressourcen
+					- [hackster.io](https://www.hackster.io) is a community dedicated to learning hardware.
+					- Netter Maker-Bericht: [»Finding Europe with Lights«](http://www.heise.de/make/artikel/Finding-Europe-with-Lights-3079605.html)
+
+					##### Beispiele
+					- [Raumtemperatur mit Android App (Arduino)](https://www.hackster.io/KaustubhAgarwal/room-temperature-sensor-with-display-on-mobile-009beb?ref=explore&ref_id=respected__beginner_showcase&offset=1)      <!-- -->
+					oder [Alternatives Projekt](https://www.hackster.io/KaustubhAgarwal/room-temperature-sensor-with-display-on-mobile-009beb?ref=explore&ref_id=popular__beginner_&offset=107)
+					- [$10 WiFi Rauchmelder](http://www.simpleiothings.com/10-diy-wifi-smoke-alarm-notifier-roost-nest-alternative-full-tutorial/)
+					- [LED Steuern via Handyausrichtung](https://www.hackster.io/electronerd/control-electronics-by-sliding-your-phone1-bcc974?ref=explore&ref_id=popular__beginner_&offset=130)
+					- [LED via Sprachsteuerung](https://www.hackster.io/msb4180/speech-recognition-and-synthesis-with-arduino-2f0363?ref=explore&ref_id=popular__beginner_&offset=149)
+					- [Smart Button via WiFi](https://www.hackster.io/noelportugal/ifttt-smart-button-e11841?ref=explore&ref_id=respected__intermediate_&offset=7)
+				</section>
+
+				</section>
+
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				// Display controls in the bottom right corner
+			    controls: false,
+
+			    // Display a presentation progress bar
+			    progress: true,
+
+			    // Display the page number of the current slide
+			    slideNumber: false,
+
+			    // Push each slide change to the browser history
+			    history: true,
+
+			    // Enable keyboard shortcuts for navigation
+			    keyboard: true,
+
+			    // Enable the slide overview mode
+			    overview: true,
+
+			    // Vertical centering of slides
+			    center: true,
+
+			    // Enables touch navigation on devices with touch input
+			    touch: true,
+
+			    // Loop the presentation
+			    loop: false,
+
+			    // Change the presentation direction to be RTL
+			    rtl: false,
+
+			    // Turns fragments on and off globally
+			    fragments: true,
+
+			    // Flags if the presentation is running in an embedded mode,
+			    // i.e. contained within a limited portion of the screen
+			    embedded: false,
+
+			    // Flags if we should show a help overlay when the questionmark
+			    // key is pressed
+			    help: true,
+
+			    // Number of milliseconds between automatically proceeding to the
+			    // next slide, disabled when set to 0, this value can be overwritten
+			    // by using a data-autoslide attribute on your slides
+			    autoSlide: 0,
+
+			    // Stop auto-sliding after user input
+			    autoSlideStoppable: true,
+
+			    // Enable slide navigation via mouse wheel
+			    mouseWheel: true,
+
+			    // Hides the address bar on mobile devices
+			    hideAddressBar: true,
+
+			    // Opens links in an iframe preview overlay
+			    previewLinks: true,
+
+			    // Transition style
+			    transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+			    // Transition speed
+			    transitionSpeed: 'default', // default/fast/slow
+
+			    // Transition style for full page slide backgrounds
+			    backgroundTransition: 'default', // none/fade/slide/convex/concave/zoom
+
+			    // Number of slides away from the current that are visible
+			    viewDistance: 3,
+
+			    // Parallax background image
+			    parallaxBackgroundImage: 'http://jamescroft.co.uk/wp-content/uploads/2015/01/217-L6YVU1.jpg', // e.g. "'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg'"
+
+			    // Parallax background size
+			    parallaxBackgroundSize: '1920px 1080px', // CSS syntax, e.g. "2100px 900px"
+
+			    // Amount to move parallax background (horizontal and vertical) on slide change
+			    // Number, e.g. 100
+			    parallaxBackgroundHorizontal: '',
+			    parallaxBackgroundVertical: '',
+
+				// The "normal" size of the presentation, aspect ratio will be preserved
+			    // when the presentation is scaled to fit different resolutions. Can be
+			    // specified using percentage units.
+			    width: 1280,
+			    height: 720,
+
+			    // Factor of the display size that should remain empty around the content
+			    margin: 0.05,
+
+			    // Bounds for smallest/largest possible scale to apply to content
+			    minScale: 0.2,
+			    maxScale: 1.5,
+
+				// Ctrl + Mouse-Click ==> Zoom in
+				zoomKey: 'ctrl',
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+
+		<script src="js/zepto.min.js"></script>
+		<script>
+		    Zepto(function ($) {
+
+		        var tableOfContents = $('#table-of-contents');
+		        var tableList = $('<ol />')
+
+		        $('.toc-element').each(function (index) {
+		            var _self = $(this),
+		                    hash = '#/' + _self.closest('section').index();
+
+		            if (_self.text()) tableList.append([
+		                '<li>',
+		                    //    '<a href="' + hash + '">',
+		                _self.text(),
+		                	//'</a>',
+		                '</li>'
+		            ].join(''));
+
+		        });
+
+		        tableOfContents.html(tableList);
+		    });
+		</script>
+
+	</body>
+</html>
