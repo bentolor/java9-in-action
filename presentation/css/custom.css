@@ -76,11 +76,11 @@
 .col3-c { width: 32%; display: inline-block; }
 .col3-r { float: right; width: 32% }
 
-.small p, .small li, p.small, div.small {
-    font-size: 86%;
+.small p, .small li, p.small, div.small, span.small, .small code {
+    font-size: 86% !important;
 }
-.x-small p, .x-small li, p.x-small, div.x-small {
-    font-size: 64%;
+.x-small p, .x-small li, p.x-small, div.x-small, .x-small code {
+    font-size: 64% !important;
 }
 
 /* --- Darstellung Tweaks ----------------------------------------------- */
@@ -236,9 +236,45 @@ body {
   float:left;
 }
 
+/* Aufzählung nicht zentrieren im 2col layout.*/
+.reveal .twocol ol, .reveal .twocol  dl, .reveal .twocol  ul {
+    display:table;
+}
 
 /* Keine Einengung der width*/
 .reveal blockquote {
   width: 80%;
   text-align: left;
+}
+
+
+/* --------------------------------------------------------- */
+/* a specially decent code ref */
+.c-ref  {
+    font-weight: lighter !important;
+    font-size: 50% !important;
+    vertical-align: super !important;
+    margin: 0 8px !important;
+    opacity: 0.6  !important;
+}
+.c-ref > code {
+    border: 1px solid rgba(255,255,255,.6) !important;
+    background:  darkblue !important;
+}
+
+
+.jep {
+    font-weight: bold !important;
+    font-size: 45% !important;
+    vertical-align: super !important;
+    margin: 0 8px !important;
+    color: cornsilk  !important;
+    border-radius: 5px !important;
+    padding: 0 7px 2px !important;
+    border: 1px solid rgba(255,255,255,.6) !important;
+    background:  olivedrab !important;
+}
+
+.left {
+    text-align: left;
 }

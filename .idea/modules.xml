@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/java9-in-action.iml" filepath="$PROJECT_DIR$/java9-in-action.iml" />
       <module fileurl="file://$PROJECT_DIR$/playground/playground.iml" filepath="$PROJECT_DIR$/playground/playground.iml" />
+      <module fileurl="file://$PROJECT_DIR$/playground-dependent/playground-dependent.iml" filepath="$PROJECT_DIR$/playground-dependent/playground-dependent.iml" />
     </modules>
   </component>
 </project>

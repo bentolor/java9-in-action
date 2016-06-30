@@ -3,13 +3,10 @@
   <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />
     <content url="file://$MODULE_DIR$">
-      <excludeFolder url="file://$MODULE_DIR$/presentation/css" />
-      <excludeFolder url="file://$MODULE_DIR$/presentation/img" />
-      <excludeFolder url="file://$MODULE_DIR$/presentation/js" />
-      <excludeFolder url="file://$MODULE_DIR$/presentation/lib" />
-      <excludeFolder url="file://$MODULE_DIR$/presentation/plugin" />
+      <sourceFolder url="file://$MODULE_DIR$/src/main/java" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module" module-name="playground" />
   </component>
 </module>
