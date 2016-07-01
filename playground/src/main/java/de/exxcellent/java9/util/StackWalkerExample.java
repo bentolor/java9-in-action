@@ -6,10 +6,14 @@ import static java.lang.System.out;
 
 public class StackWalkerExample {
 
+    /**
+     * Easily traverse stackframes.
+     */
     public static void main(String[] args) {
         walkAndFilterStackframe().forEach(out::println);
     }
 
+    // return class/method only for our classes.
     private static List<String> walkAndFilterStackframe() {
         return StackWalker.getInstance().walk(s ->
                 s.map( frame -> frame.getClassName()+"/"+frame.getMethodName() )

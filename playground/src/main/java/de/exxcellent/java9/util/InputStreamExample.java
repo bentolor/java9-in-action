@@ -6,12 +6,19 @@ import java.util.Random;
 
 public class InputStreamExample {
 
+    /**
+     * Stream utilities.
+     */
     public static void main(String[] args) throws IOException {
+        // 128 random bytes
         byte[] buf = new byte[128];
         new Random().nextBytes(buf);
-        byte[] result = new ByteArrayInputStream(buf).readAllBytes(); // All bytes from an InputStream, yeah :D
 
-        new ByteArrayInputStream(buf).transferTo(System.out); // Directly transferring from InputStream to OutputStream
+        // All bytes from an InputStream at once
+        byte[] result = new ByteArrayInputStream(buf).readAllBytes();
+
+        // Directly redirect an InputStream to an OutputStream
+        new ByteArrayInputStream(buf).transferTo(System.out);
     }
 
 }

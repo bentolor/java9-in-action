@@ -11,7 +11,7 @@ public class HttpClientExample {
      * The HTTP API functions asynchronously & synchronously. In asynchronous mode,
      * work is done on the threads supplied by the client's ExecutorService.
      */
-    public static void main(String[] args) throws Exception{
+    public static void main(String[] args) throws Exception {
         HttpClient.getDefault()
                 .request(URI.create("https://www.exxcellent.de"))
                 .GET()

@@ -9,7 +9,7 @@ public class ImmutableCollections {
 
     /**
      * Create immutable collections on the fly.
-     * They do not accept {@code null} or duplicate entries (Set/Map)
+     * <b>Note:</b> They do not accept {@code null} or duplicate entries (Set/Map)
      */
     public static void main(String args[]) {
         List<Integer> listOfNumbers = List.of(1, 2, 3, 4, 5/*, null*/);

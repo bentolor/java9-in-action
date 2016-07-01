@@ -5,6 +5,9 @@ import static java.lang.System.out;
 
 public class ControlProcess {
 
+    /**
+     * Start a process, listen to process termination, retrieve process details, kill processes.
+     */
     public static void main(String[] args) throws IOException, InterruptedException {
         Process sleeper = Runtime.getRuntime().exec("sleep 1h");
 
@@ -12,10 +15,11 @@ public class ControlProcess {
         out.println("Your pid is " + ProcessHandle.current().getPid());
         out.println("Started process is " + sleeper.getPid());
 
-        ProcessHandle handle = ProcessHandle.of(sleeper.getPid()).orElseThrow(IllegalStateException::new);
+        ProcessHandle handle = ProcessHandle.of(sleeper.getPid())   // Optional
+                .orElseThrow(IllegalStateException::new);
 
         // Do things on exiting process
-        handle.onExit().thenRun( // CompletableFuture
+        handle.onExit().thenRun(                                    // CompletableFuture
                 () -> out.println("Sleeper exited")
         );
 
