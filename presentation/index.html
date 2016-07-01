@@ -118,82 +118,6 @@
 
         </section>
 
-
-        <!--
-          === Details =============================================================================
-        -->
-        <section>
-
-            <section>
-                <div data-markdown>
-                    # Jigsaw
-                </div>
-            </section>
-
-            <section>
-                <div data-markdown>
-                    <script type="text/template">
-                        ## Jigsaw [JEP 201](http://openjdk.java.net/jeps/201)<!-- .element: class="jep" -->
-
-                        > Modules bundle together one or more packages
-                        > and offer stronger encapsulation than jars
-
-                        - Allow scaled down runtime JAR (`rt.jar`) -> IoT
-                        - _Stronger:_ In a module: `public` no longer public ;-)
-                        - _Sad:_ No module versioning
-
-                    </script>
-                </div>
-            </section>
-
-            <section>
-                <div data-markdown>
-                    <script type="text/template">
-                        ### How it works (1)
-                        `module-info.java` files declare dependencies
-
-                        ```java
-                        module com.mysql.jdbc {
-                        // Module dependency
-                        requires java.sql;
-
-                        // exported package in module
-                        exports com.mysql.jdbc;
-
-                        // Implements service with instance
-                        provides java.sql.Driver with com.mysql.jdbc.Driver;
-                        }
-                        ```
-                    </script>
-                </div>
-            </section>
-
-
-            <section>
-                <div data-markdown class="container">
-                    <script type="text/template">
-                        ### How it works (2)
-                        ##### Changes to `javac` and `java` to use modules instead of JARs
-                        ````
-                        javac -modulepath path ...
-                        java -mp moduledir -m modulename/moduleclass
-                        ````
-
-                        ##### Linker
-                        `jlink` can be used to link a set of modules, along with their transitive dependences,
-                        to create a custom modular run-time image
-
-                        ##### Resources
-                        - [JVM Module Summary](http://cr.openjdk.java.net/~mr/jigsaw/ea/module-summary.html)
-                        - [The State of the Module System](http://openjdk.java.net/projects/jigsaw/spec/sotms/)
-
-                    </script>
-                </div>
-            </section>
-
-
-        </section>
-
         <!--
           === Tooling =============================================================================
         -->
@@ -303,6 +227,82 @@
             </div>
         </section>
 
+
+
+        <!--
+          === Details =============================================================================
+        -->
+        <section>
+
+            <section>
+                <div data-markdown>
+                    # Jigsaw
+                </div>
+            </section>
+
+            <section>
+                <div data-markdown>
+                    <script type="text/template">
+                        ## Jigsaw [JEP 201](http://openjdk.java.net/jeps/201)<!-- .element: class="jep" -->
+
+                        > Modules bundle together one or more packages
+                        > and offer stronger encapsulation than jars
+
+                        - Allow scaled down runtime JAR (`rt.jar`) -> IoT
+                        - _Stronger:_ In a module: `public` no longer public ;-)
+                        - _Sad:_ No module versioning
+
+                    </script>
+                </div>
+            </section>
+
+            <section>
+                <div data-markdown>
+                    <script type="text/template">
+                        ### How it works (1)
+                        `module-info.java` files declare dependencies
+
+                        ```java
+                        module com.mysql.jdbc {
+                        // Module dependency
+                        requires java.sql;
+
+                        // exported package in module
+                        exports com.mysql.jdbc;
+
+                        // Implements service with instance
+                        provides java.sql.Driver with com.mysql.jdbc.Driver;
+                        }
+                        ```
+                    </script>
+                </div>
+            </section>
+
+
+            <section>
+                <div data-markdown class="container">
+                    <script type="text/template">
+                        ### How it works (2)
+                        ##### Changes to `javac` and `java` to use modules instead of JARs
+                        ````
+                        javac -modulepath path ...
+                        java -mp moduledir -m modulename/moduleclass
+                        ````
+
+                        ##### Linker
+                        `jlink` can be used to link a set of modules, along with their transitive dependences,
+                        to create a custom modular run-time image
+
+                        ##### Resources
+                        - [JVM Module Summary](http://cr.openjdk.java.net/~mr/jigsaw/ea/module-summary.html)
+                        - [The State of the Module System](http://openjdk.java.net/projects/jigsaw/spec/sotms/)
+
+                    </script>
+                </div>
+            </section>
+
+
+        </section>
 
 
         <section>
