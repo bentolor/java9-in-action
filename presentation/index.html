@@ -39,6 +39,11 @@
 
 <body>
 
+<a href="https://github.com/bentolor/java9-in-action">
+    <img style="position: absolute; top: 0; right: 0; border: 0; z-index: 1"
+         src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67"
+         alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a>
+
 <div class="reveal">
 
     <!-- Any section element inside of this container is displayed as a slide -->
@@ -49,34 +54,53 @@
         -->
 
         <section>
-            <div style="width: 70%; margin: 0 auto">
+            <div style="width: 80%; margin: 0 auto">
                 <h1 style="margin: 00px 0 80px 0">Java 9</h1>
                 <h5><i> Lightning Talk:</i></h5>
                 <h3 style="text-align: left" class="emphasize">An overview over <br/>the new features</h3>
-
+            </div>
                 <div id="helpfooter">
                     <code>?</code> for help
                 </div>
                 <div id="version">
-                    2016-07-01
+                    2016-07-05
                 </div>
+
+                <div class="profile" style="position: absolute; top: 150px; left: 800px">
+                    <div class="profile-sidebar">
+                        <div class="profile-userpic">
+                            <img data-src="img/BenjaminSchmid.jpg" class="img-responsive" alt="">
+                        </div>
+                        <div class="profile-usertitle">
+                            <div class="profile-usertitle-name">
+                                Benjamin Schmid
+                            </div>
+                            <div class="profile-usertitle-job">
+                                Technology Advisor
+                            </div>
+                        </div>
+                    </div>
+                    <div class="profile-content">
+                        <a href="https://twitter.com/bentolor">@bentolor</a>
+                    </div>
+                </div>
+
                 <div id="licence">
                     <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
                         <img alt="Creative Commons Lizenzvertrag"
                              src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png"/></a>
                     <br/><span xmlns:dct="http://purl.org/dc/terms/"
                                href="http://purl.org/dc/dcmitype/InteractiveResource"
-                               property="dct:title" rel="dct:type">IPv6 - a crash course</span>
+                               property="dct:title" rel="dct:type">Java 9: An short summary &amp; overview over the new features</span>
                     by
                     <a xmlns:cc="http://creativecommons.org/ns#" href="https://twitter.com/bentolor"
                        property="cc:attributionName" rel="cc:attributionURL">Benjamin Schmid</a>
-                    is licensed under a
+                    <br/>is licensed under a
                     <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
                         Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.</a>.
-                    <br> Based in parts on the work of <a xmlns:dct="http://purl.org/dc/terms/"
+                    Based in parts on the work of <a xmlns:dct="http://purl.org/dc/terms/"
                                                           href="http://lab.hakim.se/reveal-js/" rel="dct:source">Reveal.JS</a>.
                 </div>
-            </div>
         </section>
 
 
@@ -97,7 +121,7 @@
                 <div data-markdown>
                     ## Datasheet
                 </div>
-                <div style="width: 85%; margin: auto;">
+                <div style="width: 85%; margin: 0 auto;">
                     <div data-markdown class="twocol">
                         ##### Datasheet
                         - **82** JEP targeted
@@ -170,7 +194,12 @@
             </section>
 
             <section>
-                <div data-markdown class="container">
+                <h3>HTML5 Javadoc example output</h3>
+                <img src="img/javadoc-html5-example.png" alt="Example Java 9 Javadoc output with HTML5 enabled">
+            </section>
+
+            <section>
+                <div data-markdown style="width: 60%; margin: 0 auto">
                     <script type="text/template">
                         ### Cross compiling
                         #### and the `javac -release` flag
@@ -191,47 +220,101 @@
         </section>
 
         <section>
-            <div class="small">
-                <div data-markdown>
-                    ## Language details
-                </div>
 
-                <div class="twocol">
+            <section>
+                <div class="small">
                     <div data-markdown>
+                        ## Language details
+                    </div>
+
+                    <div class="twocol">
+                        <div data-markdown>
+                            <script type="text/template">
+                                ##### Process Control [`ControlProcess.java`](https://github.com/bentolor/java9-in-action/blob/master/playground/src/main/java/de/exxcellent/java9/process/ControlProcess.java) <!-- .element: class="c-ref" -->
+                                - Retrieve & inspect processes
+                                - Kill processes
+
+                                ##### Collections [`ImmutableCollections.java`](https://github.com/bentolor/java9-in-action/blob/master/playground/src/main/java/de/exxcellent/java9/collections/ImmutableCollections.java) <!-- .element: class="c-ref" -->
+                                ```
+                                List/Map/Set.of(1, 2, 3);
+                                ```
+
+                                ##### Enhanced Deprecated
+                                ````java
+                                @Deprecated(since ="1.5", forRemoval = true)
+                                ````
+
+                            </script>
+                        </div>
+                    </div>
+                    <div class="twocol" data-markdown>
                         <script type="text/template">
-                            ##### Process Control <span>`ControlProcess.java`</span> <!-- .element: class="c-ref" -->
-                            - Retrieve & inspect processes
-                            - Kill processes
-
-                            ##### Collections <span>`ImmutableCollections.java`</span> <!-- .element: class="c-ref" -->
+                            ##### Stream
                             ```
-                            List/Map/Set.of(1, 2, 3);
+                            InputStream.transferTo(OutputStream out);
                             ```
 
-                            ##### Enhanced Deprecated
-                            ````
-                            @Deprecated(since ="1.5", forRemoval = true)
-                            ````
+                            ##### StackWalker [`StackWalkerExample.java`](https://github.com/bentolor/java9-in-action/blob/master/playground/src/main/java/de/exxcellent/java9/util/StackWalkerExample.java) <!-- .element: class="c-ref" -->
 
+                            ##### Package name
+                            ````
+                            this.getClass().getPackageName()
+                            ````
                         </script>
                     </div>
                 </div>
-                <div class="twocol" data-markdown>
-                    <script type="text/template">
-                        ##### Stream
-                        ```
-                        InputStream.transferTo(OutputStream out);
-                        ```
+            </section>
 
-                        ##### StackWalker <span>`StackWalkerExample.java`</span> <!-- .element: class="c-ref" -->
+            <section>
+                <div data-markdown>
+                    ### Process Control
+                    ````java
+                    <pre>Process sp = Runtime.getRuntime().exec("sleep 1h");
 
-                        ##### Package name
-                        ````
-                        this.getClass().getPackageName()
-                        ````
-                    </script>
+                    // Get PIDs of own or started processes
+                    out.println("Your pid is " + ProcessHandle.current().getPid());
+
+                    ProcessHandle sh = ProcessHandle.of(sp.getPid())  // Optional
+                            .orElseThrow(IllegalStateException::new);
+
+                    // Do things on exiting process          // CompletableFuture
+                    sh.onExit().thenRun( ()->>out.println("Sleeper exited") );
+
+                    // Get info on process
+                    out.printf("[%d] %s - %s\n", sh.getPid(),
+                               sh.info().user().orElse("unknown"),
+                               sh.info().commandLine().orElse("none"));
+
+                    // Kill a process
+                    sh.destroy();</pre>
+                    ````
                 </div>
-            </div>
+            </section>
+
+            <section>
+                <div data-markdown>
+                    ### Immutable Collection Factories
+                    ````java
+                    <pre>/* Comment sections would break ... */
+                    List<Integer> listOfNumbers = List.of(1, 2, 3, 4, 5/*, null*/);
+                    out.println(listOfNumbers);
+
+                    Set<Integer> setOfNumbers = Set.of(1, 2, 3, 4, 5/*, 1*/);
+                    out.println(setOfNumbers);
+
+                    Map<String, String> mapOfString = Map.of("key1", "value1", "key2", "value2");
+                    out.println(mapOfString);
+
+                    Map<String, String> moreMapOfString = Map.ofEntries(
+                            Map.entry("key1", "value1"),
+                            Map.entry("key2", "value2")/*,
+                            Map.entry("key1", "value3")*/
+                    );
+                    out.println(moreMapOfString);</pre>
+                    ````
+                </div>
+            </section>
+
         </section>
 
 
@@ -271,14 +354,14 @@
 
                         ```java
                         module com.mysql.jdbc {
-                        // Module dependency
-                        requires java.sql;
+                            // Module dependency
+                            requires java.sql;
 
-                        // exported package in module
-                        exports com.mysql.jdbc;
+                            // exported package in module
+                            exports com.mysql.jdbc;
 
-                        // Implements service with instance
-                        provides java.sql.Driver with com.mysql.jdbc.Driver;
+                            // Implements service with instance
+                            provides java.sql.Driver with com.mysql.jdbc.Driver;
                         }
                         ```
                     </script>
@@ -399,7 +482,7 @@
                           progress: true,
 
                           // Display the page number of the current slide
-                          slideNumber: false,
+                          slideNumber: true,
 
                           // Push each slide change to the browser history
                           history: true,
@@ -448,7 +531,7 @@
                           hideAddressBar: true,
 
                           // Opens links in an iframe preview overlay
-                          previewLinks: true,
+                          previewLinks: false,
 
                           // Transition style
                           transition: 'slide', // none/fade/slide/convex/concave/zoom
@@ -508,7 +591,7 @@
                               },
                               {
                                   src: 'plugin/highlight/highlight.js', async: true, condition: function () {
-                                  return !!document.querySelector('pre code');
+                                  return true;
                               }, callback: function () {
                                   hljs.initHighlightingOnLoad();
                               }
