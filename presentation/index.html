@@ -145,13 +145,17 @@
         <!--
           === Tooling =============================================================================
         -->
+
         <section>
+
+
             <section>
 
                 <div data-markdown>
                     # Tooling
                 </div>
             </section>
+
 
             <section>
                 <div data-markdown>
@@ -181,6 +185,7 @@
                 </div>
             </section>
 
+
             <section>
                 <div data-markdown class="container">
                     <script type="text/template">
@@ -193,10 +198,12 @@
                 </div>
             </section>
 
+
             <section>
                 <h3>HTML5 Javadoc example output</h3>
                 <img src="img/javadoc-html5-example.png" alt="Example Java 9 Javadoc output with HTML5 enabled">
             </section>
+
 
             <section>
                 <div data-markdown style="width: 60%; margin: 0 auto">
@@ -217,9 +224,13 @@
                     </script>
                 </div>
             </section>
+
+
         </section>
 
+
         <section>
+
 
             <section>
                 <div class="small">
@@ -265,55 +276,88 @@
                 </div>
             </section>
 
+
             <section>
                 <div data-markdown>
                     ### Process Control
                     ````java
-                    <pre>Process sp = Runtime.getRuntime().exec("sleep 1h");
-
-                    // Get PIDs of own or started processes
+                    <pre>// Get PIDs of own or started processes
                     out.println("Your pid is " + ProcessHandle.current().getPid());
 
-                    ProcessHandle sh = ProcessHandle.of(sp.getPid())  // Optional
+                    Process p = Runtime.getRuntime().exec("sleep 1h");
+                    ProcessHandle h = ProcessHandle.of(p.getPid())  // Optional
                             .orElseThrow(IllegalStateException::new);
 
                     // Do things on exiting process          // CompletableFuture
-                    sh.onExit().thenRun( ()->>out.println("Sleeper exited") );
+                    h.onExit().thenRun( ()-&gt; out.println("Sleeper exited") );
 
                     // Get info on process
-                    out.printf("[%d] %s - %s\n", sh.getPid(),
-                               sh.info().user().orElse("unknown"),
-                               sh.info().commandLine().orElse("none"));
+                    out.printf("[%d] %s - %s\n", h.getPid(),
+                               h.info().user().orElse("unknown"),
+                               h.info().commandLine().orElse("none"));
 
                     // Kill a process
-                    sh.destroy();</pre>
+                    h.destroy();</pre>
                     ````
                 </div>
             </section>
+
 
             <section>
                 <div data-markdown>
                     ### Immutable Collection Factories
                     ````java
                     <pre>/* Comment sections would break ... */
-                    List<Integer> listOfNumbers = List.of(1, 2, 3, 4, 5/*, null*/);
-                    out.println(listOfNumbers);
+                    List&lt;Integer&gt; listOfNumbers = List.of(1, 2, 3, 4, 5/*, null*/);
 
-                    Set<Integer> setOfNumbers = Set.of(1, 2, 3, 4, 5/*, 1*/);
-                    out.println(setOfNumbers);
+                    Set&lt;Integer&gt; setOfNumbers = Set.of(1, 2, 3, 4, 5/*, 1*/);
 
-                    Map<String, String> mapOfString = Map.of("key1", "value1", "key2", "value2");
-                    out.println(mapOfString);
+                    Map&lt;String, String&gt; mapOfString =
+                        Map.of("key1", "value1", "key2", "value2");
 
-                    Map<String, String> moreMapOfString = Map.ofEntries(
+                    Map&lt;String, String&gt; moreMapOfString =
+                        Map.ofEntries(
                             Map.entry("key1", "value1"),
                             Map.entry("key2", "value2")/*,
                             Map.entry("key1", "value3")*/
                     );
-                    out.println(moreMapOfString);</pre>
                     ````
                 </div>
             </section>
+
+
+            <section>
+                <div data-markdown>
+                    ### StackWalker
+                    ````java
+                    <pre>// return class/method only for our classes.
+                    private static List&lt;String&gt; walkAndFilterStackframe() {
+                      return StackWalker.getInstance().walk(s -&gt;
+                        s.map( frame-&gt; frame.getClassName()+"/"+frame.getMethodName())
+                               .filter(name -&gt; name.startsWith("de.exxcellent"))
+                               .limit(10)
+                               .collect(Collectors.toList()) );
+                    }</pre>
+                    ````
+                </div>
+            </section>
+
+
+            <section>
+                <div data-markdown>
+                    ### New Input Stream Utilities
+                    ````java
+                    <pre>// All bytes from an InputStream at once
+                    byte[] result = new ByteArrayInputStream(buf)
+                        .readAllBytes();
+
+                    // Directly redirect an InputStream to an OutputStream
+                    new ByteArrayInputStream(buf)
+                        .transferTo(System.out);</pre>
+                    ````
+                </div>
+            </section>
+
 
         </section>
 
@@ -324,11 +368,13 @@
         -->
         <section>
 
+
             <section>
                 <div data-markdown>
                     # Jigsaw
                 </div>
             </section>
+
 
             <section>
                 <div data-markdown>
@@ -345,6 +391,7 @@
                     </script>
                 </div>
             </section>
+
 
             <section>
                 <div data-markdown>
@@ -399,7 +446,7 @@
             <section>
                 <div class="small">
                     <div data-markdown>
-                        ## Details
+                        ## Many (obscure) Details
                     </div>
 
                     <div class="twocol" data-markdown>
@@ -430,7 +477,7 @@
                             ##### HTTP 2 Client
                             -  implements HTTP/2 and WebSocket
                             [JEP 110](http://openjdk.java.net/jeps/110) <!-- .element: class="jep" -->
-                            <span>`HttpClientExample.java`</span> <!-- .element: class="c-ref" -->
+                            [`HttpClientExample.java`](https://github.com/bentolor/java9-in-action/blob/master/playground/src/main/java/de/exxcellent/java9/http/HttpClientExample.java) <!-- .element: class="c-ref" -->
 
                             ##### Fixes / Enhancements
                             - UTF-8 Property Files
@@ -443,7 +490,6 @@
                             [JEP 211](http://openjdk.java.net/jeps/211) <!-- .element: class="jep" -->
                             - Resolve Lint and Doclint Warnings
                             [JEP 212](http://openjdk.java.net/jeps/212) <!-- .element: class="jep" -->
-
                         </script>
                     </div>
 
