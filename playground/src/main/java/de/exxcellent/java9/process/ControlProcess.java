@@ -15,29 +15,22 @@ public class ControlProcess {
         out.println("Your pid is " + ProcessHandle.current().getPid());
         out.println("Started process is " + sleeper.getPid());
 
-        ProcessHandle handle = ProcessHandle.of(sleeper.getPid())   // Optional
+        ProcessHandle sleeperHandle = ProcessHandle.of(sleeper.getPid())   // Optional
                 .orElseThrow(IllegalStateException::new);
 
         // Do things on exiting process
-        handle.onExit().thenRun(                                    // CompletableFuture
+        sleeperHandle.onExit().thenRun(                                    // CompletableFuture
                 () -> out.println("Sleeper exited")
         );
 
         // Get info on process
         out.printf("[%d] %s - %s\n",
-                   handle.getPid(),
-                   handle.info().user().orElse("unknown"),
-                   handle.info().commandLine().orElse("none"));
-
-        // Wait for process termination
-        ProcessHandle.of(sleeper.getPid()).ifPresent(
-                process -> process.onExit().thenRun(
-                        () -> out.println("Sleeper exited")
-                )
-        );
+                   sleeperHandle.getPid(),
+                   sleeperHandle.info().user().orElse("unknown"),
+                   sleeperHandle.info().commandLine().orElse("none"));
 
         // Kill a process
-        ProcessHandle.of(sleeper.getPid()).ifPresent(ProcessHandle::destroy);
+        sleeperHandle.destroy();
 
         // Give exit handler a chance to see the sleeper onExit()
         Thread.sleep(99);
