@@ -1,19 +1,23 @@
 = Java 9 - What's hot, whats not
 Benjamin Schmid <benjamin.schmid@exxcellent.de>
 
-A overview & example of what to expect from Java 9 (Jul'2016)
-
 == Introduction
+This repository & RevealJS HTML slide presentation tries to give an overview
+over the improvments coming with Java 9.
 
+It's based on the current state as of 2016-07-01.
 
 == Contents
 
 [cols="1,2"]
 |===
 |`presentation` | A short RevealJS based presentation. Just open `index.html`
-|`playground` | Example projects. Open with IntelliJ IDEA or use Gradle to build
+|`playground`   | Example code.
+|`playground-dependent` | Another Jigsaw module depending on `playground` and
+                  demonstrating Service Provider with modules.
 |===
 
 == Getting started
+1. Install Java 9 EAP
+2. Open project with IntelliJ IDEA 2016.2 or newer (EAP!)
 
-...
