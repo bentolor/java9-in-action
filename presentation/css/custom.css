@@ -54,12 +54,12 @@
     display:table;
 }
 
-#licence { left: 0; position: absolute; top: 680px; z-index: 1; font-size: 0.3em;
-    color: #666; width: 100%; text-align: right }
+#licence { left: 0; position: absolute; top: 500px; z-index: 1; font-size: 0.4em;
+    color: #aaa; width: 100%; text-align: right }
 #licence a { color: #666; text-decoration: underline;}
 #licence img { border:0; margin:4px 0 0 0; opacity: 0.4; }
-#version { left: 0; position: absolute; text-align: center;top: 680px; z-index: 1; font-size: 0.4em; color: #aaa; width: 100%;}
-#helpfooter { left: 0; position: absolute; text-align: center;top: 680px; z-index: 1; font-size: 0.4em; color: #aaa; text-align: left; width: 100%; }
+#version { position: absolute; text-align: center;top: 480px; z-index: 1; font-size: .7em; color: #aaa; width: 100%;}
+#helpfooter { position: absolute; text-align: left;top: 480px; z-index: 1; font-size: .7em; color: #aaa; width: 100%;}
 /* --- Layout Hilfen --------------------------------------------------- */
 
 /* Shrinking DIV */
@@ -121,7 +121,6 @@
 
 /* Hintergrund abschwächen */
 body {
-  background: #000;
   background-color: #000; }
 .backgrounds {
   opacity: 0.7; }
@@ -191,8 +190,8 @@ body {
 }
 .profile .profile-sidebar {
   padding: 10px 0 10px 0;
-  border: 1px solid rgba(255,255,255,.2);
-  background: rgba(255,255,200,.2);
+  border: 1px solid rgba(125,125,100,1);
+  background: rgba(63,63,50,.7);
 }
 .profile .profile-userpic {
   padding: 0px 10px
@@ -217,9 +216,8 @@ body {
   line-height: 1em;
 }
 .profile .profile-usertitle-job {
-  color: #966;
+  color: #f99;
   font-size: 0.75em;
-  margin-top: px;
   font-weight: 300;
 }
 .profile .profile-content {
@@ -260,6 +258,10 @@ body {
 .c-ref > code {
     border: 1px solid rgba(255,255,255,.6) !important;
     background:  darkblue !important;
+}
+A.c-ref > code {
+    color: whitesmoke !important;
+    text-decoration: underline !important;
 }
 
 
