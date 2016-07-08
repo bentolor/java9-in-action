@@ -1,0 +1,31 @@
+#!/bin/bash
+
+#
+# This shows how to compile & run the example
+# modules using the new Java9 command line parameters
+#
+
+# make module directories
+mkdir -p target/module/de.exxcellent.java9
+mkdir -p target/module/anothermodule
+
+# compiling
+echo "=== Compiling playground"
+javac $(find playground/src/main/java -name "*.java") \
+      -d target/module/de.exxcellent.java9
+
+echo -e "\n=== Compiling playground-dependent"
+javac $(find playground-dependent/src/main/java -name "*.java")\
+        -d target/module/anothermodule \
+        -modulepath target/module
+
+$ java  -modulepath target/module \
+        -m anothermodule/de.exxcellent.anothermodule.TestJigsawSPI
+
+echo -e "\n=== Running anothermodule/de.exxcellent.anothermodule.RetrieveModuleInfo"
+java -modulepath target/module -m anothermodule/de.exxcellent.anothermodule.RetrieveModuleInfo
+
+
+echo -e "\n=== Running anothermodule/de.exxcellent.anothermodule.TestJigsawSPI"
+java -modulepath target/module  \
+    -m anothermodule/de.exxcellent.anothermodule.TestJigsawSPI
