@@ -332,7 +332,7 @@
 
 
             <section>
-                <div data-markdown>
+                <div data-markdown style="font-size: .92em;">
                     ### StackWalker
                     ````java
                     <pre>// return class/method only for our classes.
@@ -364,6 +364,29 @@
             </section>
 
 
+        </section>
+
+
+        <section>
+            <div data-markdown>
+                ### HTTP/2 Client
+                ````java
+                /**
+                 * The HTTP API functions asynchronously &amp; synchronously. In
+                 * asynchronous mode, work is done in threads (ExecutorService).
+                 */
+                public static void main(String[] args) throws Exception {
+                  HttpClient.getDefault()
+                    .request(URI.create("https://www.exxcellent.de"))
+                    .GET()
+                    .responseAsync() // CompletableFuture :D
+                    .thenAccept(httpResponse ->
+                        out.println(httpResponse.body(HttpResponse.asString()))
+                    );
+                  Thread.sleep(999); // Give worker thread some time.
+                }
+                ````
+            </div>
         </section>
 
 
