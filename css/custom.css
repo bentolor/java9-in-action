@@ -1,0 +1,287 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700|Montserrat+Alternates);
+@import url(https://fonts.googleapis.com/css?family=Rajdhani:400,700,600,500,300);
+
+/* Decent regular text, emphasize strongs .*/
+.reveal {
+    color: #ccc;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 42px;
+}
+
+.reveal .decent {
+    color: #666;
+}
+
+.reveal strong, .reveal h1, .reveal h2 {
+    color: #ffffff;
+    margin: 0 0 .6em 0;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+}
+
+/* Prägnantere Überschriften-Font. */
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4,
+.reveal h5,
+.reveal h6 {
+    font-family: "Montserrat", Impact, sans-serif;
+    line-height: 1em; }
+.reveal h3,
+.reveal h4 {
+    color: #ccc; }
+.reveal h3,
+.reveal h4,
+.reveal h5,
+.reveal h6 {
+    font-family: "Montserrat Alternates", Impact, sans-serif;
+    text-transform: none;
+    font-weight: 700; }
+.reveal h5,
+.reveal h6 {
+    font-family: 'Rajdhani', sans-serif;
+    margin: 1em 0 .3em 0;
+    color: #fff;
+    text-align: left;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    font-size: 100%;
+}
+
+/* Aufzählung nicht zentrieren, wenn sie in einem Shrinking Container stecken.*/
+.reveal .container ol, .reveal .container dl, .reveal .container ul {
+    display:table;
+}
+
+
+#licence { left: 0; position: absolute; top: 560px; z-index: 1; font-size: 0.46em;
+    color: #ccc; width: 100%; text-align: right }
+#licence a { color: #aaf; text-decoration: underline;}
+#licence img { border:0; margin:4px 0 0 0; opacity: 0.4; }
+#version, #helpfooter, #rightsection  {
+    position: absolute; text-align: center; top: 500px; z-index: 1; font-size: .7em; color: #ccc; width: 100%;
+}
+#version        { text-align: center }
+#helpfooter     { text-align: left   }
+#rightsection   { text-align: right  }
+/* --- Layout Hilfen --------------------------------------------------- */
+
+/* Shrinking DIV */
+.reveal DIV.container {
+  display: inline-block;
+}
+
+.reveal .pc90 {
+    max-width: 90%;
+}
+
+/* poor-mans 3col layout */
+.col3-l { float: left; width: 32% }
+.col3-c { width: 32%; display: inline-block; }
+.col3-r { float: right; width: 32% }
+
+.small p, .small li, p.small, div.small, span.small, .small code {
+    font-size: 86% !important;
+}
+.x-small p, .x-small li, p.x-small, div.x-small, .x-small code {
+    font-size: 64% !important;
+}
+
+/* --- Darstellung Tweaks ----------------------------------------------- */
+
+/* Blaue Hervorhebung */
+.reveal .emphasize {
+    color: #fa4242; }
+
+/* Kein max height für Codeblöcke */
+.reveal pre code {
+    max-height: none;
+}
+
+/* Plain Images ohne Buzz */
+.reveal img.plain {
+  margin: 0;
+  background: none;
+  border: none;
+  box-shadow: none; }
+
+/* Plain Images ohne Buzz */
+.reveal img.flag {
+  margin: 0;
+  background: none;
+  border: none;
+  box-shadow: none;
+  height: 0.8em;}
+
+/* Left-Floating Icon. */
+.reveal img.floaticon {
+    max-width: 120px;
+    margin: .2em .7em .2em 0;
+    float: left;
+    clear: both; }
+/* Label für Floaticon */
+.reveal p.floaticon {
+    margin-left: 150px; }
+
+/* Hintergrund abschwächen */
+body {
+  background-color: #000; }
+.backgrounds {
+  opacity: 0.7; }
+
+/* Top & bottom gaps */
+.tgap {
+  margin-top: .8em !important }
+.bgap {
+  margin-bottom: .8em !important  }
+.reveal .glow {
+  text-shadow: 0 0 0.5em #ccc, 0 0 0.5em #ccc;
+  -webkit-filter: drop-shadow(0px 0px 30px rgba(255,255,255,1));
+  filter: drop-shadow(0px 0px 30px rgba(255,255,255,1));
+}
+
+/* Inline code */
+.reveal code {
+  border-radius: 5px;
+  padding: 0 7px 2px;
+  border: 1px solid rgba(255,255,255,.4);
+  background: rgba(63,63,63,.8);
+  font-size: .8em;
+  white-space: nowrap; }
+.reveal pre code {
+  padding: 20px;
+  background: rgba(63,63,63,.8);
+  border: none;
+  font-size: 1.2em;
+  line-height: 1.2em;
+  white-space: pre-wrap; }
+
+/* Absatzabstand */
+.reveal p {
+  margin: .4em 0 .2em 0; }
+/* Text links*/
+/*.reveal .slides p {
+  text-align: left; }*/
+/* Listen: Größerer linker Einzug. */
+.reveal ol, .reveal dl, .reveal ul {
+  margin: 0 0 0 1.6em; }
+
+/* TOC 2-spaltig*/
+#table-of-contents ol {
+	list-style-position: inside;
+	-moz-column-count: 2;
+    -moz-column-gap: 60px;
+	-webkit-column-count: 2;
+	-webkit-column-gap: 60px;
+    column-count: 2;
+    column-gap: 60px;
+}
+
+/* TOC kleiner & dezenter */
+#table-of-contents li{
+	font-size: 0.9em;
+	line-height: 1.8em;
+    color: rgb(141, 207, 252);
+}
+
+/* ID cards auf Einstiegsfolie  ------------------------------------------------------ */
+.reveal DIV.profile {
+  margin: 60px 30px;
+  width: 400px;
+  font-size: .9em;
+  font-weight: 200;
+  float: left;
+}
+.profile .profile-sidebar {
+  padding: 10px 0 10px 0;
+  border: 1px solid rgba(125,125,100,1);
+  background: rgba(63,63,50,.7);
+}
+.profile .profile-userpic {
+  padding: 0px 10px
+}
+.profile .profile-userpic img {
+  float: left;
+  margin: 0 auto ;
+  width: 100px;
+  height: 100px;
+  -webkit-border-radius: 50% !important;
+  -moz-border-radius: 50% !important;
+  border-radius: 50% !important;
+}
+.profile .profile-usertitle {
+  text-align: center;
+  margin-top: .6em;
+  font-weight: 700;
+}
+.profile .profile-usertitle-name {
+  font-size: .8em;
+  font-weight: 600;
+  line-height: 1em;
+}
+.profile .profile-usertitle-job {
+  color: #f99;
+  font-size: 0.75em;
+  font-weight: 300;
+}
+.profile .profile-content {
+  padding: 5px;
+  border: 1px solid rgba(255,255,255,.2);
+  background: rgba(63,63,63,.8);
+  font-size: 0.6em;
+  font-weight: 600;
+
+}
+/* ------------------------------------------------------------*/
+.twocol {
+  width:48%;
+  float:left;
+}
+
+/* Aufzählung nicht zentrieren im 2col layout.*/
+.reveal .twocol ol, .reveal .twocol  dl, .reveal .twocol  ul {
+    display:table;
+}
+
+/* Keine Einengung der width*/
+.reveal blockquote {
+  width: 80%;
+  text-align: left;
+}
+
+
+/* --------------------------------------------------------- */
+/* a specially decent code ref */
+.c-ref  {
+    font-weight: lighter !important;
+    font-size: 50% !important;
+    vertical-align: super !important;
+    margin: 0 8px !important;
+    opacity: 0.6  !important;
+}
+.c-ref > code {
+    border: 1px solid rgba(255,255,255,.6) !important;
+    background:  darkblue !important;
+}
+A.c-ref > code {
+    color: whitesmoke !important;
+    text-decoration: underline !important;
+}
+
+
+.jep {
+    font-weight: bold !important;
+    font-size: 45% !important;
+    vertical-align: super !important;
+    margin: 0 8px !important;
+    color: cornsilk  !important;
+    border-radius: 5px !important;
+    padding: 0 7px 2px !important;
+    border: 1px solid rgba(255,255,255,.6) !important;
+    background:  olivedrab !important;
+}
+
+.left {
+    text-align: left;
+}
