@@ -54,12 +54,17 @@
     display:table;
 }
 
-#licence { left: 0; position: absolute; top: 500px; z-index: 1; font-size: 0.4em;
-    color: #aaa; width: 100%; text-align: right }
-#licence a { color: #666; text-decoration: underline;}
+
+#licence { left: 0; position: absolute; top: 560px; z-index: 1; font-size: 0.46em;
+    color: #ccc; width: 100%; text-align: right }
+#licence a { color: #aaf; text-decoration: underline;}
 #licence img { border:0; margin:4px 0 0 0; opacity: 0.4; }
-#version { position: absolute; text-align: center;top: 480px; z-index: 1; font-size: .7em; color: #aaa; width: 100%;}
-#helpfooter { position: absolute; text-align: left;top: 480px; z-index: 1; font-size: .7em; color: #aaa; width: 100%;}
+#version, #helpfooter, #rightsection  {
+    position: absolute; text-align: center; top: 500px; z-index: 1; font-size: .7em; color: #ccc; width: 100%;
+}
+#version        { text-align: center }
+#helpfooter     { text-align: left   }
+#rightsection   { text-align: right  }
 /* --- Layout Hilfen --------------------------------------------------- */
 
 /* Shrinking DIV */
