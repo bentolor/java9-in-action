@@ -61,6 +61,7 @@
             </div>
                 <div id="helpfooter">
                     <code>?</code> for help
+                    </p>
                 </div>
                 <div id="version">
                     2016-07-05
@@ -83,6 +84,10 @@
                     <div class="profile-content">
                         <a href="https://twitter.com/bentolor">@bentolor</a>
                     </div>
+                </div>
+
+                <div id="rightsection">
+                    <b>Tip: </b><a  class="c-ref" href="#"><code>filename</code></a> and <a href="#" class="jep">JEP</a> are direct links
                 </div>
 
                 <div id="licence">
@@ -384,8 +389,8 @@
                         > Modules bundle together one or more packages
                         > and offer stronger encapsulation than jars
 
-                        - Allow scaled down runtime JAR (`rt.jar`) -> IoT
-                        - _Stronger:_ In a module: `public` no longer public ;-)
+                        - Allow **scaled down runtime JAR**  &rarr; IoT
+                        - **Stronger:** In a module: `public` is no longer public to others
                         - _Sad:_ No module versioning
 
                     </script>
@@ -422,19 +427,100 @@
                         ### How it works (2)
                         ##### Changes to `javac` and `java` to use modules instead of JARs
                         ````
-                        javac -modulepath path ...
-                        java -mp moduledir -m modulename/moduleclass
+                        javac -mp modulepath ...
+                        java  -mp modulepath -m modulename/moduleclass
                         ````
 
                         ##### Linker
                         `jlink` can be used to link a set of modules, along with their transitive dependences,
                         to create a custom modular run-time image
 
-                        ##### Resources
+                    </script>
+                </div>
+            </section>
+
+
+            <section>
+                <div data-markdown >
+                    <script type="text/template">
+                        ### `ServiceLoader` using modules (1)
+                        ````
+                        public abstract class BillingService {
+
+                          public static BillingService getInstance() {
+                             // Java SPI to find the instance
+                             ServiceLoader<BillingServiceProvider> sl =
+                                 ServiceLoader.load(BillingServiceProvider.class);
+
+                             // Fetch first provider implementation
+                             Iterator<BillingServiceProvider> it = sl.iterator();
+
+                             return it.next().buildBillingService();
+                            }
+
+                            public abstract String takeMoney();
+                        }
+                        ````
+                    </script>
+                </div>
+            </section>
+
+
+            <section>
+                <div data-markdown style="font-size: .9em">
+                    <script type="text/template">
+                        ### `ServiceLoader` using modules (2)
+                        ````java
+                        module anothermodule {
+                          exports de.exxcellent.anothermodule;
+                          requires de.exxcellent.java9;
+
+                          // Provide Service instance (SPI with Jigsaw modules)
+                          provides de.exxcellent.java9.jigsaw.spi.BillingServiceProvider
+                          with de.exxcellent.anothermodule.spi.MastercardBillingServiceProvider;
+                        }
+                        ````
+                    </script>
+                </div>
+            </section>
+
+
+            <section>
+                <div data-markdown>
+                    <script type="text/template">
+                        ### How it works (3)
+                        ````
+                        $ mkdir -p target/module/de.exxcellent.java9
+                        $ mkdir -p target/module/anothermodule
+
+                        $ javac $(find playground/src/main/java -name "*.java") \
+                                -d target/module/de.exxcellent.java9
+                        $ javac $(find playground-dependent/src/main/java -name "*.java")\
+                                -d target/module/anothermodule \
+                                -modulepath target/module
+
+                        $ java  -modulepath target/module \
+                                -m anothermodule/de.exxcellent.anothermodule.TestJigsawSPI
+                        Mastercard billed the money!
+
+                        ````
+                    </script>
+                </div>
+            </section>
+
+
+            <section>
+                <div class="container">
+                    <div data-markdown>
+                        ### Tools
+                        - List built-in modules: `java –listmods`
+                        - Find dependencies: `jdeps –jdkinternals app.jar`
+                    </div>
+                    <div data-markdown style="margin-top: 60px">
+                        ### Ressources
                         - [JVM Module Summary](http://cr.openjdk.java.net/~mr/jigsaw/ea/module-summary.html)
                         - [The State of the Module System](http://openjdk.java.net/projects/jigsaw/spec/sotms/)
-
-                    </script>
+                    </div>
                 </div>
             </section>
 
