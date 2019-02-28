@@ -287,17 +287,17 @@
                     ### Process Control
                     ````java
                     <pre>// Get PIDs of own or started processes
-                    out.println("Your pid is " + ProcessHandle.current().getPid());
+                    out.println("Your pid is " + ProcessHandle.current().pid());
 
                     Process p = Runtime.getRuntime().exec("sleep 1h");
-                    ProcessHandle h = ProcessHandle.of(p.getPid())  // Optional
+                    ProcessHandle h = ProcessHandle.of(p.pid())  // Optional
                             .orElseThrow(IllegalStateException::new);
 
                     // Do things on exiting process          // CompletableFuture
                     h.onExit().thenRun( ()-&gt; out.println("Sleeper exited") );
 
                     // Get info on process
-                    out.printf("[%d] %s - %s\n", h.getPid(),
+                    out.printf("[%d] %s - %s\n", h.pid(),
                                h.info().user().orElse("unknown"),
                                h.info().commandLine().orElse("none"));
 
